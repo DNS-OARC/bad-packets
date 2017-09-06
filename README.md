@@ -18,7 +18,11 @@ Collection of "bad" packets in PCAPs that can be used for testing software
 
 ## Build
 
-```
+```shell
 git submodule update --init
-PYTHONPATH=$PWD/scapy make
+make
 ```
+
+## Dependencies
+
+- python
