@@ -22,7 +22,15 @@ PCAPS += v4_frag_dup.pcap
 PCAPS += v4_frag_order.pcap
 PCAPS += v4_frag_nomf.pcap
 
+FUZZ_PCAPS = v4_frag_fuzz_offset.pcap
+FUZZ_PCAPS += v4_frag_fuzz_id.pcap
+FUZZ_PCAPS += v4_frag_fuzz_src.pcap
+FUZZ_PCAPS += v4_frag_fuzz_dst.pcap
+FUZZ_PCAPS += v4_frag_fuzz_proto.pcap
+
 all: $(PCAPS)
+
+fuzz: $(FUZZ_PCAPS)
 
 clean:
 	rm -f $(PCAPS)
