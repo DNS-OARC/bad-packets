@@ -1,0 +1,3 @@
+language: python
+script:
+  - make NUM_PKTS=3 clean all
