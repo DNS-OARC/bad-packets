@@ -9,6 +9,7 @@ FRAG_OFFBYONE_MINUS := 5
 FRAG_EMPTY := 2
 FRAG_DUP := 6
 FRAG_NOMF := 10
+FRAG_TIMEOUT := 100
 
 PCAPS = v4_frag_fuzz_offset.pcap
 PCAPS += v4_frag_fuzz_id.pcap
@@ -30,6 +31,7 @@ PCAPS += v6_frag_empty.pcap
 PCAPS += v6_frag_dup.pcap
 PCAPS += v6_frag_order.pcap
 PCAPS += v6_frag_nomf.pcap
+PCAPS += v4_frag_timeout.pcap v6_frag_timeout.pcap
 
 FUZZ_PCAPS = v4_frag_fuzz_offset.pcap
 FUZZ_PCAPS += v4_frag_fuzz_id.pcap
@@ -144,3 +146,10 @@ v6_frag_order.pcap: v6_frag_order.py
 
 v6_frag_nomf.pcap: v6_frag_nomf.py
 	PYTHONPATH="$(PWD)/scapy" ./v6_frag_nomf.py "$(DESTDIR)/$@" $(FRAG_PKT_SIZE) $(FRAG_SIZE) $(FRAG_NOMF)
+
+
+v4_frag_timeout.pcap: v4_frag_timeout.py
+	PYTHONPATH="$(PWD)/scapy" ./v4_frag_timeout.py "$(DESTDIR)/$@" $(FRAG_PKT_SIZE) $(FRAG_SIZE) $(FRAG_TIMEOUT)
+
+v6_frag_timeout.pcap: v6_frag_timeout.py
+	PYTHONPATH="$(PWD)/scapy" ./v6_frag_timeout.py "$(DESTDIR)/$@" $(FRAG_PKT_SIZE) $(FRAG_SIZE) $(FRAG_TIMEOUT)
