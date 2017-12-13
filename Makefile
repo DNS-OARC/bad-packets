@@ -73,6 +73,8 @@ FUZZ_PCAPS += v6_frag_fuzz_offset_tcp.pcap
 FUZZ_PCAPS += v6_frag_fuzz_src_tcp.pcap
 FUZZ_PCAPS += v6_frag_fuzz_dst_tcp.pcap
 
+PCAPS += v4_tcp_opts_tcp.pcap v6_tcp_opts_tcp.pcap
+
 all: $(PCAPS)
 
 fuzz: $(FUZZ_PCAPS)
@@ -186,7 +188,6 @@ v6_frag_timeout_udp.pcap: v6_frag_timeout.py
 	PYTHONPATH="$(PWD)/scapy" ./v6_frag_timeout.py "$(DESTDIR)/$@" $(FRAG_PKT_SIZE) $(FRAG_SIZE) $(FRAG_TIMEOUT)
 
 
-
 # TCP
 
 v4_frag_fuzz_offset_tcp.pcap: v4_frag_fuzz_offset.py
@@ -292,3 +293,10 @@ v4_frag_timeout_tcp.pcap: v4_frag_timeout.py
 
 v6_frag_timeout_tcp.pcap: v6_frag_timeout.py
 	PYTHONPATH="$(PWD)/scapy" ./v6_frag_timeout.py "$(DESTDIR)/$@" $(FRAG_PKT_SIZE) $(FRAG_SIZE) $(FRAG_TIMEOUT) tcp
+
+
+v4_tcp_opts_tcp.pcap: v4_tcp_opts.py
+	PYTHONPATH="$(PWD)/scapy" ./v4_tcp_opts.py "$(DESTDIR)/$@" $(FRAG_PKT_SIZE) tcp
+
+v6_tcp_opts_tcp.pcap: v6_tcp_opts.py
+	PYTHONPATH="$(PWD)/scapy" ./v6_tcp_opts.py "$(DESTDIR)/$@" $(FRAG_PKT_SIZE) tcp
