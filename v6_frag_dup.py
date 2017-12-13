@@ -8,7 +8,15 @@ pkt_size = int(sys.argv[2])
 fragsize = int(sys.argv[3])
 dup = int(sys.argv[4])
 
-frags = fragment6(IPv6()/IPv6ExtHdrFragment()/UDP()/("a"*pkt_size), fragsize)
+tcp = 0
+if len(sys.argv) > 5:
+    if sys.argv[5] == "tcp":
+        tcp = 1
+
+if tcp:
+    frags = fragment6(IPv6()/IPv6ExtHdrFragment()/TCP()/("a"*pkt_size), fragsize)
+else:
+    frags = fragment6(IPv6()/IPv6ExtHdrFragment()/UDP()/("a"*pkt_size), fragsize)
 frags.insert(dup, frags[dup])
 
 wrpcap(pcap, frags)
