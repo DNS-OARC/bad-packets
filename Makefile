@@ -74,6 +74,7 @@ FUZZ_PCAPS += v6_frag_fuzz_src_tcp.pcap
 FUZZ_PCAPS += v6_frag_fuzz_dst_tcp.pcap
 
 PCAPS += v4_tcp_opts_tcp.pcap v6_tcp_opts_tcp.pcap
+PCAPS += padding.pcap missing_payload.pcap
 
 all: $(PCAPS)
 
@@ -300,3 +301,9 @@ v4_tcp_opts_tcp.pcap: v4_tcp_opts.py
 
 v6_tcp_opts_tcp.pcap: v6_tcp_opts.py
 	PYTHONPATH="$(PWD)/scapy" ./v6_tcp_opts.py "$(DESTDIR)/$@" $(FRAG_PKT_SIZE) tcp
+
+padding.pcap: padding.py
+	PYTHONPATH="$(PWD)/scapy" ./padding.py "$(DESTDIR)/$@"
+
+missing_payload.pcap: missing_payload.py
+	PYTHONPATH="$(PWD)/scapy" ./missing_payload.py "$(DESTDIR)/$@"
