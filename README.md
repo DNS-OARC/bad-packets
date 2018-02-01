@@ -33,3 +33,7 @@ Note: See `Makefile` for various options when generating packets.
 ## Dependencies
 
 - python
+
+## Static PCAPs
+
+- [various DNS PCAPs](https://github.com/DNS-OARC/bad-packets/various-dns-pcaps)
