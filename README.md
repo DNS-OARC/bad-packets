@@ -36,4 +36,4 @@ Note: See `Makefile` for various options when generating packets.
 
 ## Static PCAPs
 
-- [various DNS PCAPs](https://github.com/DNS-OARC/bad-packets/various-dns-pcaps)
+- [various DNS PCAPs](https://codeberg.org/DNS-OARC/bad-packets/various-dns-pcaps)
