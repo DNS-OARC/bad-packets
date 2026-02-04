@@ -1,3 +1,5 @@
+# NOTE: Moved to https://codeberg.org/DNS-OARC/bad-packets
+
 # bad-packets
 Collection of "bad" packets in PCAPs that can be used for testing software
 
